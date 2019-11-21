@@ -1,22 +1,96 @@
-.App {
-  text-align: center;
+* {
+	font-family: "Orbitron", sans-serif;
+	text-shadow: 1px 2px 2px rgb(8, 8, 8);
 }
 
-.App-logo {
-  height: 40vmin;
+.card {
+	background: radial-gradient(
+			ellipse farthest-corner at right bottom,
+			#fedb37 0%,
+			#fdb931 8%,
+			#9f7928 30%,
+			#8a6e2f 40%,
+			transparent 80%
+		),
+		radial-gradient(
+			ellipse farthest-corner at left top,
+			#ffffff 0%,
+			#ffffac 8%,
+			#d1b464 25%,
+			#5d4a1f 62.5%,
+			#5d4a1f 100%
+		);
+	border-radius: 35px;
+	width: 800px;
+	height: 500px;
+	position: relative;
+	margin: 0 auto;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logoMaster {
+	position: absolute;
+	width: 200px;
+	left: 600px;
+	top: 350px;
 }
-
-.App-link {
-  color: #09d3ac;
+.title {
+	font-size: 50px;
+	color: rgb(8, 0, 0);
+	font-style: italic;
+	text-align: right;
+	padding: 50px 50px 0px;
+	margin: 0;
+}
+.rip {
+	font-size: 40px;
+	color: white;
+	text-align: center;
+	margin: 100px 0px 0px 0px;
+}
+.nums {
+	font-size: 18px;
+	color: black;
+	flex-grow: 1;
+	/* border:2px solid black; */
+}
+.chip {
+	width: 200px;
+	position: absolute;
+	top: 40px;
+	left: 80px;
+}
+.data {
+	display: flex;
+	justify-content: space-between;
+	/* border:2px solid rgb(240, 6, 6); */
+	margin-left: 180px;
+	margin-right: 180px;
+}
+.data2 {
+	display: flex;
+	align-items: center;
+	/* border:2px solid rgb(6, 240, 64); */
+}
+/* .valid{
+  border:2px solid black;
+} */
+.titleValid {
+	font-size: 12px;
+	margin-right: 10px;
+}
+.date {
+	font-size: 20px;
+	color: white;
+	margin: 0;
+	text-align: center;
+}
+.MY {
+	font-size: 12px;
+	margin: 0;
+}
+.holder {
+	margin-left: 100px;
+}
+.edit {
+	width: 200px;
+	margin-top: 50px;
 }
