@@ -1,32 +1,23 @@
 import logo from "../sim.png";
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
+
+import Cleave from "cleave.js/react";
 
 export default class Card extends Component {
 	constructor() {
 		super();
 
 		this.state = {
-			rip: "",
-			name: "Mouldi",
-			valid: "/"
+			rip: "xxxx xxxx xxxx xxxx",
+			name: "xxxxx",
+			valid: "xx/xx"
 		};
 	}
 	handleRip = e => {
-		let x = e.target.value.toString();
-		let part1 = x.slice(0, 4);
-		let part2 = x.slice(4, 8);
-		let part3 = x.slice(8, 12);
-		let part4 = x.slice(12, 16);
-
-		x.length > 16
-			? alert("Maximum length 16")
-			: this.setState({
-					rip: part1
-						.concat(" ")
-						.concat(part2 + " ")
-						.concat(part3 + " ")
-						.concat(part4)
-			  });
+		this.setState({
+			rip: e.target.value
+		});
 	};
 	handleName = e => {
 		e.target.value.length > 20
@@ -37,12 +28,11 @@ export default class Card extends Component {
 	};
 	handleValid = e => {
 		let x = e.target.value.toString();
-		let y = x.slice(2, x.length);
-		let z = x.slice(0, 2);
-		z > 31
+		let y = x.slice(0, 2);
+		y > 31
 			? alert("Month contains only 31 days ;)")
 			: this.setState({
-					valid: z.concat("/").concat(y)
+					valid: e.target.value
 			  });
 	};
 	render() {
@@ -74,18 +64,19 @@ export default class Card extends Component {
 					/>
 				</div>
 				<div className='edit'>
-					<input
+					<Cleave
+						options={{ creditCard: true }}
 						onChange={this.handleRip}
 						placeholder='Type your RIP'
-						max-length='16'></input>
+						max-length='16'></Cleave>
 					<input
 						onChange={this.handleName}
 						placeholder='Type your Name'
 						max-length='20'></input>
-					<input
+					<Cleave
+						options={{ blocks: [2, 2], delimiter: "/" }}
 						onChange={this.handleValid}
-						placeholder='Valid thru'
-						maxLength='4'></input>
+						placeholder={this.state.valid}></Cleave>
 				</div>
 			</div>
 		);
